@@ -9,15 +9,14 @@ import {
 } from 'react-native';
 import { saveRecord } from '../utils/storage';
 
-export default function SleepForm({ onClose, existingRecord }) {
+export default function SleepForm({ onClose }) {
   const [startTime, setStartTime] = useState(
-    existingRecord?.startTime ||
-      new Date().toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-      })
+    new Date().toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+    })
   );
-  const [endTime, setEndTime] = useState(existingRecord?.endTime || '');
+  const [endTime, setEndTime] = useState('');
 
   const handleSave = async () => {
     if (!startTime.trim()) {
