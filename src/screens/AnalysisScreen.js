@@ -78,7 +78,8 @@ export default function AnalysisScreen() {
     } else if (item.type === 'sleep') {
       details = `Start: ${item.startTime}${item.endTime ? ` | End: ${item.endTime}` : ' | Ongoing'}`;
     } else if (item.type === 'diaper') {
-      details = `Type: ${item.type.charAt(0).toUpperCase() + item.type.slice(1)} | Time: ${item.time}`;
+      const diaperTypeDisplay = item.diaperType.charAt(0).toUpperCase() + item.diaperType.slice(1);
+      details = `Type: ${diaperTypeDisplay} | Time: ${item.time}`;
     }
 
     return (

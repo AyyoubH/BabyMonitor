@@ -10,20 +10,20 @@ import {
 import { saveRecord } from '../utils/storage';
 
 export default function DiaperForm({ onClose }) {
-  const [type, setType] = useState('');
+  const [diaperType, setDiaperType] = useState('');
   const [time, setTime] = useState(new Date().toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
   }));
 
   const handleSave = async () => {
-    if (!type) {
+    if (!diaperType) {
       Alert.alert('Error', 'Please select a diaper type');
       return;
     }
 
     const success = await saveRecord('diaper', {
-      type,
+      diaperType,
       time,
     });
 
@@ -55,14 +55,14 @@ export default function DiaperForm({ onClose }) {
           <TouchableOpacity
             style={[
               styles.optionButton,
-              type === 'pee' && styles.optionButtonActive,
+              diaperType === 'pee' && styles.optionButtonActive,
             ]}
-            onPress={() => setType('pee')}
+            onPress={() => setDiaperType('pee')}
           >
             <Text
               style={[
                 styles.optionText,
-                type === 'pee' && styles.optionTextActive,
+                diaperType === 'pee' && styles.optionTextActive,
               ]}
             >
               💧 Pee
@@ -72,14 +72,14 @@ export default function DiaperForm({ onClose }) {
           <TouchableOpacity
             style={[
               styles.optionButton,
-              type === 'poop' && styles.optionButtonActive,
+              diaperType === 'poop' && styles.optionButtonActive,
             ]}
-            onPress={() => setType('poop')}
+            onPress={() => setDiaperType('poop')}
           >
             <Text
               style={[
                 styles.optionText,
-                type === 'poop' && styles.optionTextActive,
+                diaperType === 'poop' && styles.optionTextActive,
               ]}
             >
               💩 Poop
@@ -89,14 +89,14 @@ export default function DiaperForm({ onClose }) {
           <TouchableOpacity
             style={[
               styles.optionButton,
-              type === 'both' && styles.optionButtonActive,
+              diaperType === 'both' && styles.optionButtonActive,
             ]}
-            onPress={() => setType('both')}
+            onPress={() => setDiaperType('both')}
           >
             <Text
               style={[
                 styles.optionText,
-                type === 'both' && styles.optionTextActive,
+                diaperType === 'both' && styles.optionTextActive,
               ]}
             >
               💧💩 Both
