@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
+import { Text } from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import AnalysisScreen from './src/screens/AnalysisScreen';
 
@@ -27,7 +28,7 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options={{
-            tabBarIcon: ({ color }) => <span style={{ fontSize: 24 }}>🏠</span>,
+            tabBarIcon: ({ color }) => <Text style={{ fontSize: 24 }}>🏠</Text>,
             headerTitle: 'Baby Monitor',
           }}
         />
@@ -35,7 +36,7 @@ export default function App() {
           name="Analysis"
           component={AnalysisScreen}
           options={{
-            tabBarIcon: ({ color }) => <span style={{ fontSize: 24 }}>📊</span>,
+            tabBarIcon: ({ color }) => <Text style={{ fontSize: 24 }}>📊</Text>,
           }}
         />
       </Tab.Navigator>
